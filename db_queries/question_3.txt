@@ -1,0 +1,15 @@
+Query For Geo Location 
+
+================================== 
+db.distance.aggregate([{$geoNear:{near:{type:"Point",coordinates:[80.99279,40.719296]},maxDistance:10000000,query:{},distanceField:"dist",spherical:true}}]);
+
+
+
+Output 
+ ================================
+
+
+{ "_id" : ObjectId("5f919016c883ae6f1e5571ff"), "name" : "Abhishek", "location" : [ 80.4489384, 80.302 ], "dist" : 4406358.463338146 }
+{ "_id" : ObjectId("5f918edd485808c13a2cc610"), "name" : "akhter", "location" : [ 26.4489384, 80.00002302 ], "dist" : 4903098.809024981 }
+{ "_id" : ObjectId("5f919033c883ae6f1e557200"), "name" : "prateek", "location" : [ 27.4489384, 15.00002302 ], "dist" : 5883593.972684499 }
+ 

@@ -1,0 +1,187 @@
+Query For Total 
+
+================================== 
+ db.carts.aggregate([{$unwind:'$products'},{$lookup:{from:'products',localField:'products.productId',foreignField:'_id',as:'products.det'}},{$unwind:'$products.det'},{$group:{_id:'$userId',root:{$mergeObjects:'$$ROOT'}, products:{$push:'$products'} }},{$replaceRoot:{newRoot:{$mergeObjects:['$root','$$ROOT']}}},{$project:{root:0}}]).pretty();
+
+
+ Output 
+ ================================
+
+ {
+	"_id" : ObjectId("5f8a4dc49978fd090935777d"),
+	"is_active" : true,
+	"is_deleted" : false,
+	"created_date" : ISODate("2020-10-22T11:45:32Z"),
+	"last_updated" : ISODate("2020-10-22T11:45:32Z"),
+	"userId" : ObjectId("5f8a4dc49978fd090935777d"),
+	"products" : [
+		{
+			"qty" : 1,
+			"_id" : ObjectId("5f9170eeef49893cfbc655c8"),
+			"productId" : ObjectId("5f915c801957c320277bf681"),
+			"det" : {
+				"_id" : ObjectId("5f915c801957c320277bf681"),
+				"is_active" : true,
+				"is_deleted" : false,
+				"created_date" : ISODate("2020-10-22T10:18:36Z"),
+				"last_updated" : ISODate("2020-10-22T10:18:36Z"),
+				"title" : "abc",
+				"price" : 200,
+				"discount" : 10,
+				"__v" : 0
+			}
+		}
+	],
+	"__v" : 0
+}
+{
+	"_id" : ObjectId("5f8a4dc49978fd090934777d"),
+	"is_active" : true,
+	"is_deleted" : false,
+	"created_date" : ISODate("2020-10-22T11:36:58Z"),
+	"last_updated" : ISODate("2020-10-22T11:36:58Z"),
+	"userId" : ObjectId("5f8a4dc49978fd090934777d"),
+	"products" : [
+		{
+			"qty" : 1,
+			"_id" : ObjectId("5f916ee236fafc3a1d8ecdc5"),
+			"productId" : ObjectId("5f915c801957c320277bf681"),
+			"det" : {
+				"_id" : ObjectId("5f915c801957c320277bf681"),
+				"is_active" : true,
+				"is_deleted" : false,
+				"created_date" : ISODate("2020-10-22T10:18:36Z"),
+				"last_updated" : ISODate("2020-10-22T10:18:36Z"),
+				"title" : "abc",
+				"price" : 200,
+				"discount" : 10,
+				"__v" : 0
+			}
+		},
+		{
+			"qty" : 1,
+			"_id" : ObjectId("5f916f0636fafc3a1d8ecdc6"),
+			"productId" : ObjectId("5f915c981957c320277bf682"),
+			"det" : {
+				"_id" : ObjectId("5f915c981957c320277bf682"),
+				"is_active" : true,
+				"is_deleted" : false,
+				"created_date" : ISODate("2020-10-22T10:18:36Z"),
+				"last_updated" : ISODate("2020-10-22T10:18:36Z"),
+				"title" : "xyz",
+				"price" : 400,
+				"discount" : 20,
+				"__v" : 0
+			}
+		},
+		{
+			"qty" : 1,
+			"_id" : ObjectId("5f916f0636fafc3a1d8ecdc6"),
+			"productId" : ObjectId("5f915cb01957c320277bf683"),
+			"det" : {
+				"_id" : ObjectId("5f915cb01957c320277bf683"),
+				"is_active" : true,
+				"is_deleted" : false,
+				"created_date" : ISODate("2020-10-22T10:18:36Z"),
+				"last_updated" : ISODate("2020-10-22T10:18:36Z"),
+				"title" : "qwerty",
+				"price" : 500,
+				"discount" : 10,
+				"__v" : 0
+			}
+		}
+	],
+	"__v" : 0
+}
+{
+	"_id" : ObjectId("4f8a4dc49978fd090935777d"),
+	"is_active" : true,
+	"is_deleted" : false,
+	"created_date" : ISODate("2020-10-22T12:02:06Z"),
+	"last_updated" : ISODate("2020-10-22T12:02:06Z"),
+	"userId" : ObjectId("4f8a4dc49978fd090935777d"),
+	"products" : [
+		{
+			"qty" : 1,
+			"_id" : ObjectId("5f9174c42031d24079265864"),
+			"productId" : ObjectId("5f915c981957c320277bf682"),
+			"det" : {
+				"_id" : ObjectId("5f915c981957c320277bf682"),
+				"is_active" : true,
+				"is_deleted" : false,
+				"created_date" : ISODate("2020-10-22T10:18:36Z"),
+				"last_updated" : ISODate("2020-10-22T10:18:36Z"),
+				"title" : "xyz",
+				"price" : 400,
+				"discount" : 20,
+				"__v" : 0
+			}
+		}
+	],
+	"__v" : 0
+}
+{
+	"_id" : ObjectId("5f8a4dc49978fd090933777d"),
+	"is_active" : true,
+	"is_deleted" : false,
+	"created_date" : ISODate("2020-10-22T10:52:40Z"),
+	"last_updated" : ISODate("2020-10-22T10:52:40Z"),
+	"userId" : ObjectId("5f8a4dc49978fd090933777d"),
+	"products" : [
+		{
+			"qty" : 1,
+			"_id" : ObjectId("5f916494a7ce192c1dcb48ec"),
+			"productId" : ObjectId("5f915cb01957c320277bf683"),
+			"det" : {
+				"_id" : ObjectId("5f915cb01957c320277bf683"),
+				"is_active" : true,
+				"is_deleted" : false,
+				"created_date" : ISODate("2020-10-22T10:18:36Z"),
+				"last_updated" : ISODate("2020-10-22T10:18:36Z"),
+				"title" : "qwerty",
+				"price" : 500,
+				"discount" : 10,
+				"__v" : 0
+			}
+		},
+		{
+			"qty" : 1,
+			"_id" : ObjectId("5f916cc6a9311638200a1535"),
+			"productId" : ObjectId("5f915c981957c320277bf682"),
+			"det" : {
+				"_id" : ObjectId("5f915c981957c320277bf682"),
+				"is_active" : true,
+				"is_deleted" : false,
+				"created_date" : ISODate("2020-10-22T10:18:36Z"),
+				"last_updated" : ISODate("2020-10-22T10:18:36Z"),
+				"title" : "xyz",
+				"price" : 400,
+				"discount" : 20,
+				"__v" : 0
+			}
+		},
+		{
+			"qty" : 1,
+			"_id" : ObjectId("5f916cfc9cfa403874afc9b0"),
+			"productId" : ObjectId("5f915c801957c320277bf681"),
+			"det" : {
+				"_id" : ObjectId("5f915c801957c320277bf681"),
+				"is_active" : true,
+				"is_deleted" : false,
+				"created_date" : ISODate("2020-10-22T10:18:36Z"),
+				"last_updated" : ISODate("2020-10-22T10:18:36Z"),
+				"title" : "abc",
+				"price" : 200,
+				"discount" : 10,
+				"__v" : 0
+			}
+		}
+	],
+	"__v" : 0
+}
+
+
+
+
+
+
